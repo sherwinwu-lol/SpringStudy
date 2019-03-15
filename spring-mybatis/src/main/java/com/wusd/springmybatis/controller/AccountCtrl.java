@@ -1,5 +1,6 @@
 package com.wusd.springmybatis.controller;
 
+import com.github.pagehelper.PageHelper;
 import com.wusd.springmybatis.model.Account;
 import com.wusd.springmybatis.model.AccountExample;
 import com.wusd.springmybatis.service.AccountService;
@@ -14,9 +15,15 @@ public class AccountCtrl {
     @Autowired
     AccountService accountService;
 
-    @GetMapping("/list")
-    public List<Account> getAccounts() {
+    @GetMapping("/list/{pageNo}/{pageSize}")
+    public List<Account> getAccounts(@PathVariable("pageNo") int pageNo,
+                                     @PathVariable("pageSize") int pageSize) {
         AccountExample accountExample = new AccountExample();
+        PageHelper.startPage(pageNo, pageSize);
+        // 这个查询会分页
+        List<Account> accountList = accountService.findAccountList(accountExample);
+//        return accountList;
+        // 这个查询不会分页
         return accountService.findAccountList(accountExample);
     }
 
