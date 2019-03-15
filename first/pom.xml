@@ -19,6 +19,7 @@
     </properties>
 
     <dependencies>
+        <!-- 不仅包含spring-boot-starter, 还自动开启了Web功能. -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
