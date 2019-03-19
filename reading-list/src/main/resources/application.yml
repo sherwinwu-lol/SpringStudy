@@ -1,0 +1,21 @@
+# 用于配置应用程序和Spring Boot的属性
+# 在运行时参数指定  java -jar readinglist-0.0.1-SNAPSHOT.jar --spring.main.show-banner=false
+# 1.命令行参数
+# 2.java:comp/env里的JNDI属性
+# 3.JVM系统属性
+# 4.操作系统环境变量
+# 5.随机生成的带random.*前缀的属性:比如${random.long}
+# 6.应用程序外的application.properties
+# 7.打包在应用程序内的application.properties
+# 8.通过@PropertySource标注的属性源
+# 9.默认属性
+# /config会覆盖classpath里面的application.yml
+server:
+  port: 8000
+  ssl: C:\Users\wusd\Documents\JavaBooks\mykeys.jks
+  key-store-password: wusd123..
+  key-password: wusd123..
+#禁用thymleaf缓存
+spring:
+  thymeleaf:
+    cache: false
