@@ -8,7 +8,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * 一个基本的集成测试类
- * @SpringApplicationConfiguration: 通过spring boot加载上下文
+ * @SpringRunner: 继承了SpringJUnitClassRunner
+ * @SpringApplicationConfiguration: 通过spring boot加载上下文, 绝大部分代替@ContextConfiguration
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

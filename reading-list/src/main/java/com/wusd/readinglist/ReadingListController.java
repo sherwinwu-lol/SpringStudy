@@ -1,6 +1,8 @@
 package com.wusd.readinglist;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,15 +14,22 @@ import java.util.List;
 /**
  * @Controller: 将其注册为Spring上下文的Bean
  * @RequestMapping: 将处理器方法都映射到"/"这个URL路径上.
+ * @ConfigurationProperties: 属性注入
  */
 @Controller
 @RequestMapping("/")
 public class ReadingListController {
     private ReadingListRepository readingListRepository;
+    private AmazonProperties amazonProperties;
 
+    /**
+     * @param readingListRepository
+     * @param amazonProperties: 注入AmazonProperties
+     */
     @Autowired
-    public ReadingListController(ReadingListRepository readingListRepository) {
+    public ReadingListController(ReadingListRepository readingListRepository, AmazonProperties amazonProperties) {
         this.readingListRepository = readingListRepository;
+        this.amazonProperties = amazonProperties;
     }
 
     /**
@@ -35,6 +44,9 @@ public class ReadingListController {
         List<Book> readingList = readingListRepository.findByReader(reader);
         if (readingList != null) {
             model.addAttribute("books", readingList);
+            model.addAttribute("reader", reader);
+            // 将associateId放入模板
+            model.addAttribute("amazonID", amazonProperties.getAssociateId());
         }
         return "readingList";
     }
@@ -52,4 +64,15 @@ public class ReadingListController {
         // 重定向到/{reader}
         return "redirect:/{reader}";
     }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String addToReadingList(Book book, String reader) {
+        book.setReader(reader);
+        readingListRepository.save(book);
+        return "redirect:/readingList";
+    }
+
+    /**
+     * 配置属性在调优方面十分有用, 这里说的调优不仅覆盖了自动配置的组件, 还包括注入自有应用程序Bean的细节.
+     */
 }

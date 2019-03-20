@@ -10,12 +10,23 @@
 # 8.通过@PropertySource标注的属性源
 # 9.默认属性
 # /config会覆盖classpath里面的application.yml
+
+#log4j配置
+logging:
+  path: D:\\log\
+  file: reading-list.log
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: DEBUG
 server:
   port: 8000
   ssl:
     key-store: classpath:mykeys.jks
     key-store-password: wusd123..
     key-password: wusd123..
+
 spring:
   #禁用thymleaf缓存
   thymeleaf:
@@ -24,14 +35,26 @@ spring:
     url: jdbc:mysql://localhost:3306/readinglist?serverTimezone=UTC
     username: root
     password: wusd123..
-#log4j配置
-logging:
-  path: D:\log\
-  file: reading-list.log
-  level:
-    root: WARN
-    org:
-      springframework:
-        security: DEBUG
 # 数据库
 
+amazon:
+  associateId: habuma-20
+---
+spring:
+  profiles:
+    active: dev
+logging:
+  level:
+    root: DEBUG
+---
+spring:
+  profiles: test
+logging:
+  level:
+   root: INFO
+---
+spring:
+  profiles: pro
+logging:
+  level:
+    root: warn
