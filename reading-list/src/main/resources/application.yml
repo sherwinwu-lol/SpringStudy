@@ -12,10 +12,26 @@
 # /config会覆盖classpath里面的application.yml
 server:
   port: 8000
-  ssl: C:\Users\wusd\Documents\JavaBooks\mykeys.jks
-  key-store-password: wusd123..
-  key-password: wusd123..
-#禁用thymleaf缓存
+  ssl:
+    key-store: classpath:mykeys.jks
+    key-store-password: wusd123..
+    key-password: wusd123..
 spring:
+  #禁用thymleaf缓存
   thymeleaf:
     cache: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/readinglist?serverTimezone=UTC
+    username: root
+    password: wusd123..
+#log4j配置
+logging:
+  path: D:\log\
+  file: reading-list.log
+  level:
+    root: WARN
+    org:
+      springframework:
+        security: DEBUG
+# 数据库
+
