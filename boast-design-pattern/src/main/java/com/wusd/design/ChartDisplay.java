@@ -2,6 +2,10 @@ package com.wusd.design;
 
 
 public class ChartDisplay {
+    public static void main(String[] args) {
+        ChartDisplay chartDisplay = new ChartDisplay();
+        chartDisplay.display("");
+    }
     public void display(String type) {
         if (type.equals("pie")) {
 //            PieChart chart = new PieChart();

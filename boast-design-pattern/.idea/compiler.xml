@@ -9,5 +9,8 @@
         <module name="boast-design-pattern" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="boast-design-pattern" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
