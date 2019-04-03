@@ -1,5 +1,7 @@
 package com.wusd.design.fifth.one;
 
+import com.wusd.design.fifth.two.ActorBuilder;
+
 public class AngelBuilder extends ActorBuilder {
     @Override
     public void buildType() {
