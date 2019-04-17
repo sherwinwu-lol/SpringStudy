@@ -1,6 +1,6 @@
-import command.ActiveObjectEngine;
-import command.Command;
-import command.SleepCommand;
+import designPattern.command.ActiveObjectEngine;
+import designPattern.command.Command;
+import designPattern.command.SleepCommand;
 import junit.framework.*;
 import junit.swingui.TestRunner;
 
