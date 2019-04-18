@@ -7,29 +7,20 @@ import lombok.Data;
 
 @Data
 public class Employee {
-    private int itsEmpId;
-    private String itsName;
-    private String itsAddress;
+    private int empId;
+    private String name;
+    private String address;
 
-    private PaymentSchedule paymentSchedule;
-    private PaymentClassification paymentClassification;
-    private PaymentMethod paymentMethod;
+    private PaymentClassification classification;
+    private PaymentSchedule schedule;
+    private PaymentMethod method;
 
-    public Employee(int itsEmpId, String itsName, String itsAddress) {
-        this.itsEmpId = itsEmpId;
-        this.itsName = itsName;
-        this.itsAddress = itsAddress;
+    public Employee() {
     }
 
-    public void setPaymentSchedule(PaymentSchedule paymentSchedule) {
-        this.paymentSchedule = paymentSchedule;
-    }
-
-    public void setPaymentClassification(PaymentClassification paymentClassification) {
-        this.paymentClassification = paymentClassification;
-    }
-
-    public void setPaymentMethod(PaymentMethod paymentMethod) {
-        this.paymentMethod = paymentMethod;
+    public Employee(int empId, String name, String address) {
+        this.empId = empId;
+        this.name = name;
+        this.address = address;
     }
 }
