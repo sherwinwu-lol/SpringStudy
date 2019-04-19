@@ -6,7 +6,6 @@ import impl.method.HoldMethod;
 import impl.method.PaymentMethod;
 import impl.model.Employee;
 import impl.schedule.PaymentSchedule;
-import impl.transaction.Transaction;
 
 public class AddEmployeeTransaction extends Transaction {
     private int empId;
