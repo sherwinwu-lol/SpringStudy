@@ -1,4 +1,4 @@
-package impl.transaction.sub;
+package impl.transaction.add;
 
 import impl.classification.PaymentClassification;
 import impl.classification.SalariedClassification;

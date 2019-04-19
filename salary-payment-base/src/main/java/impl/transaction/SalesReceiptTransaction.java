@@ -1,11 +1,12 @@
 package impl.transaction;
 
-import impl.classification.PaymentClassification;
+import impl.classification.CommissionedClassification;
 import impl.database.PayrollDatabase;
 import impl.model.Employee;
+import impl.model.SalesReceipt;
 import org.joda.time.DateTime;
 
-public class SalesReceiptTransaction implements Transaction {
+public class SalesReceiptTransaction extends Transaction {
     private DateTime dateTime;
     private double amount;
     private int empId;
@@ -19,8 +20,10 @@ public class SalesReceiptTransaction implements Transaction {
     @Override
     public void execute() throws Exception {
         Employee e = PayrollDatabase.getEmployee(empId);
-        PaymentClassification pc = e.getClassification();
+        CommissionedClassification cc = (CommissionedClassification)e.getClassification();
 
+        SalesReceipt sr = new SalesReceipt(amount, dateTime);
 
+        cc.addSalesReceipt(sr);
     }
 }

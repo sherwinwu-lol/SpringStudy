@@ -7,7 +7,7 @@ import impl.model.Employee;
 import impl.model.TimeCard;
 import org.joda.time.DateTime;
 
-public class TimeCardTransaction implements Transaction {
+public class TimeCardTransaction extends Transaction {
     private int empId;
     private DateTime dateTime;
     private double hours;

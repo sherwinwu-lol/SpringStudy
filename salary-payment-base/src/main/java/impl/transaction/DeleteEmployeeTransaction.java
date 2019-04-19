@@ -2,7 +2,7 @@ package impl.transaction;
 
 import impl.database.PayrollDatabase;
 
-public class DeleteEmployeeTransaction implements Transaction {
+public class DeleteEmployeeTransaction extends Transaction {
     private int empId;
 
     public DeleteEmployeeTransaction() {

@@ -8,7 +8,7 @@ import impl.model.Employee;
 import impl.schedule.PaymentSchedule;
 import impl.transaction.Transaction;
 
-public class AddEmployeeTransaction implements Transaction {
+public class AddEmployeeTransaction extends Transaction {
     private int empId;
     private String name;
     private String address;

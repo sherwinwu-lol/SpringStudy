@@ -1,5 +1,5 @@
 package impl.transaction;
 
-public interface Transaction {
-    void execute() throws Exception;
+public abstract class Transaction {
+    public abstract void execute() throws Exception;
 }
