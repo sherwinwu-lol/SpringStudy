@@ -17,7 +17,8 @@ public class PaydayTransaction extends Transaction {
         List<Employee> employeeList = PayrollDatabase.getEmployeeList();
         employeeList.stream()
                 .forEach(o -> {
-                    boolean isPayDay = o.isPayDay(now);
+                    boolean isPayDay = o.isPayDate(now);
+                    DateTime payStartDate = o.getPayStartDate(now);
                     if (isPayDay) {
                         PayCheck pc = new PayCheck(payStartDate, now);
                         o.payday(pc);

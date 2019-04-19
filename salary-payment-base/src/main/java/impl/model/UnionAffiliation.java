@@ -18,4 +18,9 @@ public class UnionAffiliation implements Affiliation {
     public void addServiceCharge(ServiceCharge sc) {
 
     }
+
+    @Override
+    public double calculateDeductions(PayCheck pc) {
+        return 0;
+    }
 }

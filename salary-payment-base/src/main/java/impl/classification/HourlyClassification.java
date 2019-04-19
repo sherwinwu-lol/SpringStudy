@@ -42,7 +42,7 @@ public class HourlyClassification implements PaymentClassification {
     @Override
     public double calculatePay(PayCheck pc) {
         double totalPay = 0;
-        DateTime payDate = pc.getPayDate();
+        DateTime payEndDate = pc.getPayEndDate();
         Set<DateTime> keySet = dateTimeTimeCardMap.keySet();
         List<TimeCard> timeCardList = keySet.stream().map(o -> {
             return dateTimeTimeCardMap.get(o);
@@ -50,7 +50,7 @@ public class HourlyClassification implements PaymentClassification {
 
         totalPay = timeCardList.stream()
                 .filter(o -> {
-                    return isInPayDate(o, payDate);
+                    return isInPayDate(o, payEndDate);
                 }).mapToDouble(o -> {
                     return calculatePayForTimeCard(o);
                 }).reduce(0d, (sum, item) -> sum + item);

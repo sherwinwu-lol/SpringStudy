@@ -28,13 +28,8 @@ public class ServiceChargeTransaction extends Transaction {
     @Override
     public void execute() throws Exception {
         Employee e = PayrollDatabase.getEmployee(memberId);
-        List<Affiliation> affiliations = e.getAffiliations();
-        UnionAffiliation ua = (UnionAffiliation) affiliations.stream().filter(o -> {
-            return o instanceof UnionAffiliation;
-        }).findFirst().orElse(null);
-
+        UnionAffiliation ua = (UnionAffiliation) e.getAffiliation();
         ServiceCharge sc = new ServiceCharge(dateTime, charge);
-
         ua.addServiceCharge(sc);
     }
 }

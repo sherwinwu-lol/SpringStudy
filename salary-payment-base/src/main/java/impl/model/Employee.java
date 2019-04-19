@@ -7,6 +7,7 @@ import lombok.Data;
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -17,9 +18,9 @@ public class Employee {
 
     private Affiliation affiliation;
 
-    private PaymentClassification classification;
     private PaymentSchedule schedule;
     private PaymentMethod method;
+    private PaymentClassification classification;
 
     public Employee() {
     }
@@ -28,6 +29,15 @@ public class Employee {
         this.empId = empId;
         this.name = name;
         this.address = address;
+        this.affiliation = new NoAffiliation();
+    }
+
+    public boolean isPayDate(DateTime payDate) {
+        return schedule.isPayDate(payDate);
+    }
+
+    public DateTime getPayStartDate(DateTime payEndDate) {
+        return schedule.getPayStartDate(payEndDate);
     }
 
     public void payday(PayCheck pc) {

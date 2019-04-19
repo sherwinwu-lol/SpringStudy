@@ -3,9 +3,12 @@ package impl.model;
 import lombok.Data;
 import org.joda.time.DateTime;
 
+import java.util.Date;
+
 @Data
 public class PayCheck {
-    private DateTime payDate;
+    private DateTime payStartDate;
+    private DateTime payEndDate;
     private double grossPay;
     private double netPay;
     private double deductions;
@@ -13,7 +16,8 @@ public class PayCheck {
     public PayCheck() {
     }
 
-    public PayCheck(DateTime payDate) {
-        this.payDate = payDate;
+    public PayCheck(DateTime payStartDate, DateTime payEndDate) {
+        this.payStartDate = payStartDate;
+        this.payEndDate = payEndDate;
     }
 }

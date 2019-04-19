@@ -23,7 +23,7 @@ public class ChangeMemberTransaction extends ChangeAffiliationTransaction {
 
     @Override
     public void recodeMembership(Employee e) {
-        PayrollDatabase.addUnionMmeber(memberId, e);
+        PayrollDatabase.addUnionMember(memberId, e);
     }
 
     @Override

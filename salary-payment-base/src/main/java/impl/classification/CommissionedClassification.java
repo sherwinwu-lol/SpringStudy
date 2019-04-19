@@ -35,10 +35,10 @@ public class CommissionedClassification implements PaymentClassification {
 
     @Override
     public double calculatePay(PayCheck pc) {
-        DateTime payDate = pc.getPayDate();
+        DateTime payEndDate = pc.getPayEndDate();
         double totalPay = salesReceiptList.stream()
                 .filter(o -> {
-                    return isInPayDate(o, payDate);
+                    return isInPayDate(o, payEndDate);
                 }).mapToDouble(SalesReceipt::getAmount)
                 .reduce(0d, (sum, item) -> sum + item);
         return totalPay;
