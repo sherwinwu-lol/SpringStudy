@@ -5,12 +5,21 @@ import impl.classification.PaymentClassification;
 import impl.database.PayrollDatabase;
 import impl.model.Employee;
 import impl.model.TimeCard;
+import lombok.Data;
 import org.joda.time.DateTime;
 
+@Data
 public class TimeCardTransaction extends Transaction {
     private int empId;
     private DateTime dateTime;
     private double hours;
+
+    public TimeCardTransaction(int empId, DateTime dateTime, double hours) {
+        this.empId = empId;
+        this.dateTime = dateTime;
+        this.hours = hours;
+    }
+
     @Override
     public void execute() throws Exception {
         Employee e = PayrollDatabase.getEmployee(empId);

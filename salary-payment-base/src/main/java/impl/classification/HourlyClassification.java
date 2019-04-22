@@ -2,6 +2,7 @@ package impl.classification;
 
 import impl.model.PayCheck;
 import impl.model.TimeCard;
+import lombok.Data;
 import org.joda.time.DateTime;
 
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Data
 public class HourlyClassification implements PaymentClassification {
     private double hourlyRate;
     private Map<DateTime, TimeCard> dateTimeTimeCardMap = new HashMap<>();

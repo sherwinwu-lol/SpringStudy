@@ -6,7 +6,9 @@ import impl.model.Employee;
 import impl.model.NoAffiliation;
 import impl.model.UnionAffiliation;
 import impl.transaction.change.ChangeAffiliationTransaction;
+import lombok.Data;
 
+@Data
 public class ChangeUnaffiliatedTransaction extends ChangeAffiliationTransaction {
     public ChangeUnaffiliatedTransaction() {
     }

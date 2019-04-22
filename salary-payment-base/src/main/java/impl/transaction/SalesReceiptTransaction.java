@@ -4,8 +4,10 @@ import impl.classification.CommissionedClassification;
 import impl.database.PayrollDatabase;
 import impl.model.Employee;
 import impl.model.SalesReceipt;
+import lombok.Data;
 import org.joda.time.DateTime;
 
+@Data
 public class SalesReceiptTransaction extends Transaction {
     private DateTime dateTime;
     private double amount;

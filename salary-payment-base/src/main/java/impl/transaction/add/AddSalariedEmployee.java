@@ -5,7 +5,9 @@ import impl.classification.SalariedClassification;
 import impl.schedule.MonthlySchedule;
 import impl.schedule.PaymentSchedule;
 import impl.transaction.AddEmployeeTransaction;
+import lombok.Data;
 
+@Data
 public class AddSalariedEmployee extends AddEmployeeTransaction {
     private double salary;
 

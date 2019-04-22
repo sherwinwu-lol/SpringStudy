@@ -2,6 +2,7 @@ package impl.classification;
 
 import impl.model.PayCheck;
 import impl.model.SalesReceipt;
+import lombok.Data;
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Data
 public class CommissionedClassification implements PaymentClassification {
     private double salary;
     private double comissionRate;

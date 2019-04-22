@@ -5,7 +5,9 @@ import impl.classification.PaymentClassification;
 import impl.schedule.PaymentSchedule;
 import impl.schedule.WeeklySchedule;
 import impl.transaction.AddEmployeeTransaction;
+import lombok.Data;
 
+@Data
 public class AddHourlyEmployee extends AddEmployeeTransaction {
     private double hourlyRate;
 

@@ -1,7 +1,9 @@
 package impl.classification;
 
 import impl.model.PayCheck;
+import lombok.Data;
 
+@Data
 public class SalariedClassification implements PaymentClassification {
     private double salary;
 
