@@ -1,5 +1,7 @@
 package impl.method;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import impl.model.PayCheck;
 import lombok.Data;
 import org.joda.time.DateTime;
@@ -19,6 +21,6 @@ public class DirectMethod implements PaymentMethod {
 
     @Override
     public void pay(PayCheck pc) {
-
+        System.out.println("DirectMethod.pc:" + JSON.toJSONString(pc));
     }
 }

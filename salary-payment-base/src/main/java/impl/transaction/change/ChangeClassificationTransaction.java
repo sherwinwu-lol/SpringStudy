@@ -6,6 +6,12 @@ import impl.schedule.PaymentSchedule;
 import impl.transaction.ChangeEmployeeTransaction;
 
 public abstract class ChangeClassificationTransaction extends ChangeEmployeeTransaction {
+    public ChangeClassificationTransaction() {
+    }
+
+    public ChangeClassificationTransaction(int empId) {
+        super(empId);
+    }
 
     public abstract PaymentClassification getClassification();
 

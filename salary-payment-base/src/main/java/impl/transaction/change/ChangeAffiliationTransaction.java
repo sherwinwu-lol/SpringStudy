@@ -7,7 +7,6 @@ import lombok.Setter;
 
 @Setter
 public abstract class ChangeAffiliationTransaction extends ChangeEmployeeTransaction {
-    private Affiliation affiliation;
     public ChangeAffiliationTransaction() {
     }
 

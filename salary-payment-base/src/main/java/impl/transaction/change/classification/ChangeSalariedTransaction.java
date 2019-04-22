@@ -14,7 +14,8 @@ public class ChangeSalariedTransaction extends ChangeClassificationTransaction {
     public ChangeSalariedTransaction() {
     }
 
-    public ChangeSalariedTransaction(double salary) {
+    public ChangeSalariedTransaction(int empId, double salary) {
+        super(empId);
         this.salary = salary;
     }
 

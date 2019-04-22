@@ -1,7 +1,9 @@
 package impl.transaction;
 
 import impl.database.PayrollDatabase;
+import lombok.Data;
 
+@Data
 public class DeleteEmployeeTransaction extends Transaction {
     private int empId;
 

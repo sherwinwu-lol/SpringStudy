@@ -6,8 +6,10 @@ import impl.method.HoldMethod;
 import impl.method.PaymentMethod;
 import impl.model.Employee;
 import impl.schedule.PaymentSchedule;
+import lombok.Data;
 
-public class AddEmployeeTransaction extends Transaction {
+@Data
+public abstract class AddEmployeeTransaction extends Transaction {
     private int empId;
     private String name;
     private String address;
@@ -21,13 +23,9 @@ public class AddEmployeeTransaction extends Transaction {
         this.address = address;
     }
 
-    public PaymentClassification getClassification() {
-        return null;
-    }
+    public abstract PaymentClassification getClassification();
 
-    public PaymentSchedule getSchedule() {
-        return null;
-    }
+    public abstract PaymentSchedule getSchedule();
 
     @Override
     public void execute() {

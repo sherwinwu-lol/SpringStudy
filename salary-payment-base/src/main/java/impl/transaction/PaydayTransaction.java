@@ -1,11 +1,8 @@
 package impl.transaction;
 
-import impl.classification.PaymentClassification;
 import impl.database.PayrollDatabase;
-import impl.method.PaymentMethod;
 import impl.model.Employee;
 import impl.model.PayCheck;
-import impl.schedule.PaymentSchedule;
 import org.joda.time.DateTime;
 
 import java.util.List;

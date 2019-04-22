@@ -1,7 +1,7 @@
 package impl.method;
 
+import com.alibaba.fastjson.JSON;
 import impl.model.PayCheck;
-import org.joda.time.DateTime;
 
 public class MailMethod implements PaymentMethod {
     private String address;
@@ -15,6 +15,6 @@ public class MailMethod implements PaymentMethod {
 
     @Override
     public void pay(PayCheck pc) {
-
+        System.out.println("MailMethod.pc:" + JSON.toJSONString(pc));
     }
 }

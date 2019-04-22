@@ -6,10 +6,6 @@ import impl.schedule.PaymentSchedule;
 import lombok.Data;
 import org.joda.time.DateTime;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 @Data
 public class Employee {
     private int empId;

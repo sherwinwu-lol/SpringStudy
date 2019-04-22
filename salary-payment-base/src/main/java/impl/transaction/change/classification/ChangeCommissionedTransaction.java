@@ -15,7 +15,8 @@ public class ChangeCommissionedTransaction extends ChangeClassificationTransacti
     public ChangeCommissionedTransaction() {
     }
 
-    public ChangeCommissionedTransaction(double salary, double commissionRate) {
+    public ChangeCommissionedTransaction(int empId, double salary, double commissionRate) {
+        super(empId);
         this.salary = salary;
         this.commissionRate = commissionRate;
     }

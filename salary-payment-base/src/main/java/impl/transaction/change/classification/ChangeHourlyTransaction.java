@@ -14,7 +14,8 @@ public class ChangeHourlyTransaction extends ChangeClassificationTransaction {
     public ChangeHourlyTransaction() {
     }
 
-    public ChangeHourlyTransaction(double hourlyRate) {
+    public ChangeHourlyTransaction(int empId, double hourlyRate) {
+        super(empId);
         this.hourlyRate = hourlyRate;
     }
 

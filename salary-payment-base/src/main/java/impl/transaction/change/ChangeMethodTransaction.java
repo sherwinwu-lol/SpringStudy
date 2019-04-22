@@ -7,7 +7,12 @@ import lombok.Setter;
 
 @Setter
 public abstract class ChangeMethodTransaction extends ChangeEmployeeTransaction {
-    private PaymentMethod method;
+    public ChangeMethodTransaction() {
+    }
+
+    public ChangeMethodTransaction(int empId) {
+        super(empId);
+    }
 
     public abstract PaymentMethod getMethod();
 
