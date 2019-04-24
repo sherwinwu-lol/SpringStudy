@@ -22,6 +22,11 @@ public class HashSet<E> extends AbstractSet<E> implements Set<E>, Cloneable, jav
     }
 
     @Override
+    public boolean containsAll(Collection<?> collection) {
+        return false;
+    }
+
+    @Override
     public boolean isEmpty() {
         return false;
     }

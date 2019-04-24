@@ -23,8 +23,7 @@ public class JsonApplicationContext extends BeanFactoryImpl {
 
         InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
 
-        List<BeanDefinition> beanDefinitions = JsonUtils.readValue(is, new TypeReference<List<BeanDefinition>>() {
-        });
+        List<BeanDefinition> beanDefinitions = JsonUtils.readValue(is, new TypeReference<List<BeanDefinition>>() {});
 
         if (beanDefinitions != null && !beanDefinitions.isEmpty()) {
 

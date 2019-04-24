@@ -6,6 +6,6 @@ public class Main {
         list = new LinkedList();
         Set set = new HashSet();
         set = new LinkedHashSet();
-        set = new TreeSet()
+        set = new TreeSet();
     }
 }

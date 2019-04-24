@@ -5,6 +5,8 @@ public interface Collection<E> extends Iterator<E> {
     boolean addAll(Collection<? extends E> collection);
     void clear();
     boolean contains(Object o);
+
+    boolean containsAll(Collection<?> collection);
     @Override
     boolean equals(Object o);
     @Override
