@@ -1,0 +1,26 @@
+[
+  {
+    "name":"beforeMethod",
+    "className":"com.wusd.framework.aop.StartTimeBeforeMethod"
+  },
+  {
+    "name":"afterMethod",
+    "className":"com.wusd.framework.aop.EndTimeAfterMethod"
+  },
+  {
+    "name":"testService",
+    "className":"com.wusd.framework.aop.TestService"
+  },
+  {
+    "name":"testServiceProxy",
+    "className":"com.wusd.framework.aop.core.ProxyFactoryBean",
+    "target":"testService",
+    "interceptorNames":[
+      "beforeMethod",
+      "afterMethod"
+    ]
+  }
+]
+
+
+
