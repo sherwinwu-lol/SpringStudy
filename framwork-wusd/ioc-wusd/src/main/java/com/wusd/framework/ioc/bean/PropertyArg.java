@@ -1,4 +1,11 @@
 package com.wusd.framework.ioc.bean;
 
-public class Property {
+import lombok.Data;
+
+@Data
+public class PropertyArg {
+    private String name;
+    private String value;
+    private String typeName;
+    private String ref;
 }

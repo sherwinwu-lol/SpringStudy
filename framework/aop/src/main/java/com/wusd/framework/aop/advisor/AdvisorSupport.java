@@ -13,7 +13,7 @@ import java.util.List;
 public class AdvisorSupport extends Advisor {
     //目标对象
     private TargetSource targetSource;
-
+    //拦截器列表
     private List<AopMethodInterceptor> list = new LinkedList<>();
 
     public void addAopMethodInterceptor(AopMethodInterceptor interceptor) {

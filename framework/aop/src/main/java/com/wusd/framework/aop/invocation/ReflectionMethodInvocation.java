@@ -39,12 +39,16 @@ public class ReflectionMethodInvocation implements ProxyMethodInvocation {
         return arguments;
     }
 
+    //用于保存所有的拦截器,需要递归的去增加拦截器.当处理完了所有拦截器之后,才会真正调用调用被增强的方法.
     @Override
     public Object proceed() throws Throwable {
+        //执行完所有的拦截器后,执行目标方法
         if (currentInterceptorIndex == this.interceptorList.size() - 1) {
             return invokeOriginal();
         }
 
+        //迭代的执行拦截器.回顾上面的讲解,我们实现的拦截都会执行mi.proceed() 实际上又会调用这个方法.
+        //实现了一个递归的调用,直到执行完所有的拦截器.
         AopMethodInterceptor interceptor = interceptorList.get(++currentInterceptorIndex);
         return interceptor.invoke(this);
     }
