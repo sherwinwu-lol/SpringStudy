@@ -6,13 +6,21 @@ import com.wusd.framework.aop.util.ReflectionUtils;
 import java.lang.reflect.Method;
 import java.util.List;
 
+/**
+ * 具体方法的调用
+ */
 public class ReflectionMethodInvocation implements ProxyMethodInvocation {
+    //代理
     protected final Object proxy;
+    //被代理
     protected final Object target;
+    //被代理的方法
     protected final Method method;
+    //被代理方法的传参
     protected Object[] arguments = new Object[0];
-    //用于保存所有的拦截器,需要递归的去增加拦截器.当处理完了所有拦截器之后,才会真正调用调用被增强的方法.
+    //拦截器列表,作用是执行完拦截器,才会执行真正的方法
     protected final List<AopMethodInterceptor> interceptorList;
+    //用于记录拦截器
     private int currentInterceptorIndex = -1;
 
     public ReflectionMethodInvocation(Object proxy, Object target, Method method, Object[] arguments,
@@ -22,6 +30,24 @@ public class ReflectionMethodInvocation implements ProxyMethodInvocation {
         this.method = method;
         this.arguments = arguments;
         this.interceptorList = interceptorList;
+    }
+
+    //用于保存所有的拦截器,需要递归的去增加拦截器.当处理完了所有拦截器之后,才会真正调用调用被增强的方法.
+    @Override
+    public Object proceed() throws Throwable {
+        //当调用所有的拦截器,执行真正的方法
+        if (currentInterceptorIndex == this.interceptorList.size() - 1) {
+            return invokeOriginal();
+        }
+
+        AopMethodInterceptor interceptor = interceptorList.get(++currentInterceptorIndex);
+        //执行拦截器的调用, 拦截器继续调用这个方法, 通过在这个方法前后做些动作实现aop
+        return interceptor.invoke(this);
+    }
+
+    //方法调用请求真正的方法
+    protected Object invokeOriginal() throws Throwable {
+        return ReflectionUtils.invokeMethodUseReflection(target, method, arguments);
     }
 
     @Override
@@ -37,23 +63,5 @@ public class ReflectionMethodInvocation implements ProxyMethodInvocation {
     @Override
     public Object[] getArguments() {
         return arguments;
-    }
-
-    //用于保存所有的拦截器,需要递归的去增加拦截器.当处理完了所有拦截器之后,才会真正调用调用被增强的方法.
-    @Override
-    public Object proceed() throws Throwable {
-        //执行完所有的拦截器后,执行目标方法
-        if (currentInterceptorIndex == this.interceptorList.size() - 1) {
-            return invokeOriginal();
-        }
-
-        //迭代的执行拦截器.回顾上面的讲解,我们实现的拦截都会执行mi.proceed() 实际上又会调用这个方法.
-        //实现了一个递归的调用,直到执行完所有的拦截器.
-        AopMethodInterceptor interceptor = interceptorList.get(++currentInterceptorIndex);
-        return interceptor.invoke(this);
-    }
-
-    protected Object invokeOriginal() throws Throwable {
-        return ReflectionUtils.invokeMethodUseReflection(target, method, arguments);
     }
 }

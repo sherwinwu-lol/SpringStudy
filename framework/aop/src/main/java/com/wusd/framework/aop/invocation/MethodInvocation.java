@@ -3,24 +3,24 @@ package com.wusd.framework.aop.invocation;
 import java.lang.reflect.Method;
 
 /**
- * 该类作为所有方法调用的接口.
+ * 执行方法必须调用的接口
  */
 public interface MethodInvocation {
     /**
-     * 获取方法本身
-     * @return
+     * 方法本身
+     * @return: 方法
      */
     Method getMethod();
 
     /**
-     * 获取方法的参数
-     * @return
+     * 方法的传参
+     * @return: 传参数组
      */
     Object[] getArguments();
 
     /**
-     * 执行方法本身
-     * @return
+     * 方法的执行, 并返回返回值
+     * @return: 返回值
      * @throws Throwable
      */
     Object proceed() throws Throwable;

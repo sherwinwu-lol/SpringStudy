@@ -15,11 +15,7 @@ public class CglibMethodInvocation extends ReflectionMethodInvocation {
         this.methodProxy = methodProxy;
     }
 
-    /**
-     * 使用代理类来调用被增强的方法.
-     * @return
-     * @throws Throwable
-     */
+    //使用cglib方法代理类来请求方法的调用, 是增强, 实际逻辑是一样的
     @Override
     protected Object invokeOriginal() throws Throwable {
         return methodProxy.invoke(target, arguments);

@@ -22,6 +22,7 @@ public class CglibAopProxy implements AopProxy {
 
     @Override
     public Object getProxy(ClassLoader classLoader) {
+        //获取真正对象的Class
         Class<?> rootClass = advisor.getTargetSource().getTargetClass();
         if (classLoader == null) {
             classLoader = ClassUtils.getDefaultClassLoader();

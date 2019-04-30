@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Data
 public class AdvisorSupport extends Advisor {
-    //目标对象
+    //真正的对象
     private TargetSource targetSource;
     //拦截器列表
     private List<AopMethodInterceptor> list = new LinkedList<>();

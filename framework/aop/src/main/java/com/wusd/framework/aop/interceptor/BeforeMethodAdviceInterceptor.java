@@ -4,9 +4,10 @@ import com.wusd.framework.aop.advisor.BeforeMethodAdvice;
 import com.wusd.framework.aop.invocation.MethodInvocation;
 
 /**
- * 在方法执行以前拦截
+ * 具体拦截器:方法执行前
  */
 public class BeforeMethodAdviceInterceptor implements AopMethodInterceptor {
+    //用来保存方法执行干了什么
     private BeforeMethodAdvice advice;
 
     public BeforeMethodAdviceInterceptor(BeforeMethodAdvice advice) {
@@ -15,8 +16,9 @@ public class BeforeMethodAdviceInterceptor implements AopMethodInterceptor {
 
     @Override
     public Object invoke(MethodInvocation mi) throws Throwable {
-        //把advice对应的增强方法放在真正执行的方法前面
+        //先调用 切面方法
         advice.before(mi.getMethod(), mi.getArguments(), mi);
+        //再调用 实际方法
         return mi.proceed();
     }
 }
