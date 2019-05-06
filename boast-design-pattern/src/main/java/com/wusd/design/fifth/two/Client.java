@@ -1,7 +1,7 @@
 package com.wusd.design.fifth.two;
 
-import com.wusd.design.fifth.one.Actor;
 import com.wusd.design.util.XMLUtil;
+import com.wusd.design.fifth.one.Actor;
 import lombok.extern.slf4j.Slf4j;
 
 //编写如下客户端测试代码

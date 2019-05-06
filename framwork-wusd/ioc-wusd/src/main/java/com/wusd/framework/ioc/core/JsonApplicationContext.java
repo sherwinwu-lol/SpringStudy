@@ -1,7 +1,6 @@
 package com.wusd.framework.ioc.core;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wusd.framework.ioc.bean.BeanDefinition;
 import com.wusd.framework.ioc.util.JsonUtils;
 

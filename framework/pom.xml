@@ -11,6 +11,8 @@
     <modules>
         <module>ioc</module>
         <module>aop</module>
+        <module>mvc</module>
+        <module>salary-payment-web</module>
     </modules>
 
     <dependencies>

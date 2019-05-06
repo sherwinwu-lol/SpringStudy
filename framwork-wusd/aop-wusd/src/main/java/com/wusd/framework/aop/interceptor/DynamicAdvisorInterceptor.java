@@ -1,7 +1,6 @@
 package com.wusd.framework.aop.interceptor;
 
 import com.wusd.framework.aop.advisor.TargetSource;
-import com.wusd.framework.aop.invocation.MethodInvocation;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 

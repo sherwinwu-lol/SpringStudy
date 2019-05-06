@@ -11,6 +11,7 @@
     <modules>
         <module>ioc-wusd</module>
         <module>aop-wusd</module>
+        <module>mvc-wusd</module>
     </modules>
 
 
