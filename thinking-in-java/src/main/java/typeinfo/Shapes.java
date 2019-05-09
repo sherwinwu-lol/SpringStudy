@@ -54,7 +54,11 @@ public class Shapes {
         shapeList.forEach(Shape::draw);
         Shape shape = new Rhomboid();
         Rhomboid rhomboid = (Rhomboid) shape;
-        Shape circle = new Circle();
+
+        //无法转型,因为类型信息的存在
+        Circle circle = (Circle) shape;
+
+//        Shape circle = new Circle();
         rhomboid.rotate(rhomboid);
         rhomboid.rotate(circle);
         if (shape instanceof Circle) {

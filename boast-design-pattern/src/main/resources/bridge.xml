@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <!--RefinedAbstraction-->
+    <className>com.wusd.design.bridgePattern.ref.JPGImage</className>
+    <!--ConcreteImplementor-->
+    <className>com.wusd.design.bridgePattern.ref.LinuxImp</className>
+</config>
