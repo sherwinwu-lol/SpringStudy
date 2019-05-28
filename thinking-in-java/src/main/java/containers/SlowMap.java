@@ -38,3 +38,6 @@ public class SlowMap<K, V> extends AbstractMap<K, V> {
         System.out.println(m.entrySet());
     }
 }
+/**
+ * MapEntry可以保存和读取键与值,在entrySet()中用来产生键-值对Set.
+ */

@@ -1,6 +1,6 @@
 package typeinfo.pets;
 
-public class Pet extends Individual implements Comparable {
+public class Pet extends Individual {
     public Pet(String name) {
         super(name);
     }
@@ -11,9 +11,9 @@ public class Pet extends Individual implements Comparable {
         return getClass().getSimpleName();
     }
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(Individual o) {
         if (o instanceof Individual) {
-            return ((Individual) o).id.compareTo(this.id);
+            return  ((Long)o.id).compareTo(this.id);
         }
         return 0;
     }
