@@ -23,4 +23,14 @@ public class Person {
         return birthDate.compareTo(boomStart) >= 0 &&
                 birthDate.compareTo(boomEnd) < 0;
     }
+    //Manual finalizer chaining
+    @Override
+    protected void finalize() throws Throwable {
+        try {
+            //...
+            //Finalize subclass state
+        } finally {
+            super.finalize();
+        }
+    }
 }
