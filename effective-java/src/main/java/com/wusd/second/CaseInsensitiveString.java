@@ -1,7 +1,7 @@
 package com.wusd.second;
 
 //Broken - violates symmetry!
-public final class CaseInsensitiveString {
+public final class CaseInsensitiveString implements Comparable<CaseInsensitiveString> {
     private final String s;
 
     public CaseInsensitiveString(String s) {
@@ -17,6 +17,13 @@ public final class CaseInsensitiveString {
         if (o instanceof String)
             return s.equalsIgnoreCase((String)o);
         return false;
+    }
+
+    /**
+     * 递归地调用compareTo
+     */
+    public int compareTo(CaseInsensitiveString cis) {
+        return String.CASE_INSENSITIVE_ORDER.compare(s, cis.s);
     }
     //...
     //Remainder omitted
